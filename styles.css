@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@300;400;700&display=swap');
+
+.selecionado {
+    display: none;
+}
+
+.top-bar, .bottom-bar {
+    height: 92px;
+    width: 100%;
+    font-weight: 400;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+}
+
+.top-bar {
+    background-color: #CF2B2B;
+    color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    top: 0;
+    padding-left: 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.top-bar h1 {
+    font-family: 'Righteous';
+    font-size: 44px;
+}
+
+.top-bar h2 {
+    font-family: 'Roboto';
+    font-size: 18px;
+}
+
+.content {
+    padding: 106px 19px 94px 19px;
+    background-color: #E5E5E5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content h1 {
+    font-family: 'Righteous';
+    font-weight: 400;
+    font-size: 26px;
+    color: #333333;
+}
+
+.content > div {
+    height: 263px;
+    margin: 14px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu {
+    width: 100%;
+    display: flex;
+    align-self: flex-start;
+    overflow-x: scroll;
+    gap: 16px;
+}
+
+.option {
+    border-radius: 9px;
+    height: 216px;
+    width: 172px;
+    flex-shrink: 0;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
+    padding: 18px 14px 10px 14px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.option img {
+    object-fit: cover;
+    width: 144px;
+    height: 87px;
+    border-radius: 4px;
+}
+
+.option h1 {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 16px;
+    color: #333333;
+}
+
+.option h2 {
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 15px;
+    color: #A6A6A6;
+}
+
+.option h3 {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.option div {
+    width: 144px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+.bottom-bar {
+    bottom: 0;
+    background-color: #FFFFFF;
+    font-family: 'Roboto';
+    font-size: 20px;
+}
+
+.button {
+    height: 61px;
+    margin: 15px 25px;
+    background-color: #CBCBCB;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button span {
+    width: 60%;
+    color: #FFFFFF;
+    text-align: center;
+}
