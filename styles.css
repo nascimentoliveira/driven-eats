@@ -206,7 +206,11 @@ ion-icon {
     font-weight: 700;
 }
 
-.resume-itens > button {
+a {
+    text-decoration: none;
+}
+
+.resume-itens button {
     margin: 0px;
     height: 52px;
     width: 100%;
@@ -217,19 +221,19 @@ ion-icon {
     border: 0px;
 }
 
-.resume-itens > button:nth-child(even) {
+.resume-itens > a > button {
     background-color: #FFFFFF;
     color: #50D074;
     font-size: 22px;
 }
 
-.resume-itens >  button:nth-child(odd) {
+.resume-itens > button {
     background-color: transparent;
     color: #FFFFFF;
     font-size: 20px;
 }
 
-.resume-itens > button > span {
+.resume-itens button > span {
     width: 70%;
     font-weight: 700;
     text-align: center;

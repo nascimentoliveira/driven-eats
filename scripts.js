@@ -97,16 +97,15 @@ function resume() {
         const site = document.querySelector(".checkout");
         site.classList.add("resume");
         let itens = site.querySelector(".resume-itens :nth-child(2)");
-        itens.querySelector("h2").innerHTML = foodOrder[0][1];
+        itens.querySelector("h2").innerHTML = foodOrder[0][0] + " - " + foodOrder[0][1];
         itens.querySelector("h3").innerHTML = foodOrder[0][2];
         itens = site.querySelector(".resume-itens :nth-child(3)");
-        itens.querySelector("h2").innerHTML = foodOrder[1][1];
+        itens.querySelector("h2").innerHTML = foodOrder[1][0] + " - " + foodOrder[1][1];
         itens.querySelector("h3").innerHTML = foodOrder[1][2];     
         itens = site.querySelector(".resume-itens :nth-child(4)");
-        itens.querySelector("h2").innerHTML = foodOrder[2][1];
+        itens.querySelector("h2").innerHTML = foodOrder[2][0] + " - " + foodOrder[2][1];
         itens.querySelector("h3").innerHTML = foodOrder[2][2];
         itens = site.querySelector(".resume-itens :nth-child(5)");
-        console.log(foodOrder[0][2].slice(2));
         itens.querySelector("h1:nth-child(2)").innerHTML = priceCalculator()
     }
 }
@@ -114,4 +113,15 @@ function resume() {
 function revision(){
     const site = document.querySelector(".checkout");
         site.classList.remove("resume");
+}
+
+function request(){
+    let str = `Olá, gostaria de fazer o pedido:\n`;
+    str += `- Prato: ${foodOrder[0][0] + " - " + foodOrder[0][1]}\n`;
+    str += `- Bebida: ${foodOrder[1][0] + " - " + foodOrder[1][1]}\n`;
+    str += `- Sobremesa: ${foodOrder[2][0] + " - " + foodOrder[2][1]}\n`;
+    str += `Total: ${priceCalculator()}`;
+    const a = document.querySelector(".checkout a");
+    a.target="_blank"
+    a.href="https://wa.me/?text=" + encodeURIComponent(str);
 }
