@@ -116,11 +116,24 @@ function revision(){
 }
 
 function request(){
+    let name = prompt("Qual é o seu nome?")
+    let address = prompt("Qual é o seu endereço?")
+
+    if (name === null){
+        name = "Não informado"
+    }
+
+    if (address === null){
+        address = "Não informado"
+    }
+
     let str = `Olá, gostaria de fazer o pedido:\n`;
     str += `- Prato: ${foodOrder[0][0] + " - " + foodOrder[0][1]}\n`;
     str += `- Bebida: ${foodOrder[1][0] + " - " + foodOrder[1][1]}\n`;
     str += `- Sobremesa: ${foodOrder[2][0] + " - " + foodOrder[2][1]}\n`;
-    str += `Total: ${priceCalculator()}`;
+    str += `Total: ${priceCalculator()}\n\n`;
+    str += `Nome: ${name}\n`;
+    str += `Endereço: ${address}\n`;
     const a = document.querySelector(".checkout a");
     a.target="_blank"
     a.href="https://wa.me/?text=" + encodeURIComponent(str);
