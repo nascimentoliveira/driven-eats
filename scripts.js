@@ -1,30 +1,32 @@
 let itens = 0;
+let foodOrder = [[], [], []]
 
 function checkItems() {
-    const button = document.querySelector(".bottom-bar .button");
+    const button = document.querySelector(".bottom-bar button");
     const message = button.querySelector("span");
     
     if (itens === 3) {
         message.innerHTML = "Fechar pedido";
         button.classList.add("selected")
-    }else{
+    } else {
         message.innerHTML = "Selecione os 3 itens para fechar o pedido";
         button.classList.remove("selected")
     }
 
 }
 
-function selectMeal(option){
-    const meal = option.querySelector("h1");
-    const comp_meal = option.querySelector("h2");
-    const price = option.querySelector("h3");
+function selectMeal(option) {
+    foodOrder[0][0] = option.querySelector("h1").innerHTML;
+    foodOrder[0][1] = option.querySelector("h2").innerHTML;
+    foodOrder[0][2] = option.querySelector("h3").innerHTML;
     
     const selected = document.querySelector(".meal .selected");
 
     if (option.classList.contains("selected")) {
         option.classList.remove('selected');
         itens--;
-    }else{
+    } else {
+
         if (selected !== null) {
             selected.classList.remove('selected');
             itens--;
@@ -36,17 +38,18 @@ function selectMeal(option){
     checkItems();
 }
 
-function selectDrink(option){
-    const drink = option.querySelector("h1");
-    const comp_drink = option.querySelector("h2");
-    const price = option.querySelector("h3");
+function selectDrink(option) {
+    foodOrder[1][0] = option.querySelector("h1").innerHTML;
+    foodOrder[1][1] = option.querySelector("h2").innerHTML;
+    foodOrder[1][2] = option.querySelector("h3").innerHTML;
     
     const selected = document.querySelector(".drink .selected");
 
     if (option.classList.contains("selected")) {
         option.classList.remove('selected');
         itens--;
-    }else{
+    } else {
+
         if (selected !== null) {
             selected.classList.remove('selected');
             itens--;
@@ -58,18 +61,18 @@ function selectDrink(option){
     checkItems();
 }
 
-
-function selectDessert(option){
-    const dessert = option.querySelector("h1");
-    const comp_dessert = option.querySelector("h2");
-    const price = option.querySelector("h3");
+function selectDessert(option) {
+    foodOrder[2][0] = option.querySelector("h1").innerHTML;
+    foodOrder[2][1] = option.querySelector("h2").innerHTML;
+    foodOrder[2][2] = option.querySelector("h3").innerHTML;
     
     const selected = document.querySelector(".dessert .selected");
     
     if (option.classList.contains("selected")) {
         option.classList.remove('selected');
         itens--;
-    }else{
+    } else {
+
         if (selected !== null) {
             selected.classList.remove('selected');
             itens--;
@@ -79,4 +82,36 @@ function selectDessert(option){
         itens++;
     }
     checkItems();
+}
+
+function priceCalculator(){
+    price1 = Number(foodOrder[0][2].slice(2).replace(',', '.'));
+    price2 = Number(foodOrder[1][2].slice(2).replace(',', '.'));
+    price3 = Number(foodOrder[2][2].slice(2).replace(',', '.'));
+    price = price1 + price2 + price3;
+    return "R$ " + price.toFixed(2).replace('.', ',');
+}
+
+function resume() {
+    if (itens === 3) {
+        const site = document.querySelector(".checkout");
+        site.classList.add("resume");
+        let itens = site.querySelector(".resume-itens :nth-child(2)");
+        itens.querySelector("h2").innerHTML = foodOrder[0][1];
+        itens.querySelector("h3").innerHTML = foodOrder[0][2];
+        itens = site.querySelector(".resume-itens :nth-child(3)");
+        itens.querySelector("h2").innerHTML = foodOrder[1][1];
+        itens.querySelector("h3").innerHTML = foodOrder[1][2];     
+        itens = site.querySelector(".resume-itens :nth-child(4)");
+        itens.querySelector("h2").innerHTML = foodOrder[2][1];
+        itens.querySelector("h3").innerHTML = foodOrder[2][2];
+        itens = site.querySelector(".resume-itens :nth-child(5)");
+        console.log(foodOrder[0][2].slice(2));
+        itens.querySelector("h1:nth-child(2)").innerHTML = priceCalculator()
+    }
+}
+
+function revision(){
+    const site = document.querySelector(".checkout");
+        site.classList.remove("resume");
 }
