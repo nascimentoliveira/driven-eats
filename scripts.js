@@ -7,20 +7,21 @@ function checkItems() {
     
     if (itens === 3) {
         message.innerHTML = "Fechar pedido";
-        button.classList.add("selected")
+        button.classList.add("selected");
     } else {
         message.innerHTML = "Selecione os 3 itens para fechar o pedido";
-        button.classList.remove("selected")
+        button.classList.remove("selected");
     }
 
 }
 
 function selectMeal(option) {
+
+    const selected = document.querySelector(".meal .selected");
+
     foodOrder[0][0] = option.querySelector("h1").innerHTML;
     foodOrder[0][1] = option.querySelector("h2").innerHTML;
     foodOrder[0][2] = option.querySelector("h3").innerHTML;
-    
-    const selected = document.querySelector(".meal .selected");
 
     if (option.classList.contains("selected")) {
         option.classList.remove('selected');
@@ -31,7 +32,6 @@ function selectMeal(option) {
             selected.classList.remove('selected');
             itens--;
         }
-    
         option.classList.add("selected");
         itens++;
     }
@@ -39,12 +39,13 @@ function selectMeal(option) {
 }
 
 function selectDrink(option) {
+
+    const selected = document.querySelector(".drink .selected");
+
     foodOrder[1][0] = option.querySelector("h1").innerHTML;
     foodOrder[1][1] = option.querySelector("h2").innerHTML;
     foodOrder[1][2] = option.querySelector("h3").innerHTML;
     
-    const selected = document.querySelector(".drink .selected");
-
     if (option.classList.contains("selected")) {
         option.classList.remove('selected');
         itens--;
@@ -54,7 +55,6 @@ function selectDrink(option) {
             selected.classList.remove('selected');
             itens--;
         }
-    
         option.classList.add("selected");
         itens++;
     }
@@ -62,11 +62,12 @@ function selectDrink(option) {
 }
 
 function selectDessert(option) {
+
+    const selected = document.querySelector(".dessert .selected");
+
     foodOrder[2][0] = option.querySelector("h1").innerHTML;
     foodOrder[2][1] = option.querySelector("h2").innerHTML;
     foodOrder[2][2] = option.querySelector("h3").innerHTML;
-    
-    const selected = document.querySelector(".dessert .selected");
     
     if (option.classList.contains("selected")) {
         option.classList.remove('selected');
@@ -77,7 +78,6 @@ function selectDessert(option) {
             selected.classList.remove('selected');
             itens--;
         }
-    
         option.classList.add("selected");
         itens++;
     }
@@ -97,34 +97,35 @@ function resume() {
         const site = document.querySelector(".checkout");
         site.classList.add("resume");
         let itens = site.querySelector(".resume-itens :nth-child(2)");
-        itens.querySelector("h2").innerHTML = foodOrder[0][0] + " - " + foodOrder[0][1];
+       
+        itens.querySelector("h2").innerHTML = foodOrder[0][1];
         itens.querySelector("h3").innerHTML = foodOrder[0][2];
         itens = site.querySelector(".resume-itens :nth-child(3)");
-        itens.querySelector("h2").innerHTML = foodOrder[1][0] + " - " + foodOrder[1][1];
+        itens.querySelector("h2").innerHTML = foodOrder[1][1];
         itens.querySelector("h3").innerHTML = foodOrder[1][2];     
         itens = site.querySelector(".resume-itens :nth-child(4)");
-        itens.querySelector("h2").innerHTML = foodOrder[2][0] + " - " + foodOrder[2][1];
+        itens.querySelector("h2").innerHTML = foodOrder[2][1];
         itens.querySelector("h3").innerHTML = foodOrder[2][2];
         itens = site.querySelector(".resume-itens :nth-child(5)");
-        itens.querySelector("h1:nth-child(2)").innerHTML = priceCalculator()
+        itens.querySelector("h1:nth-child(2)").innerHTML = priceCalculator();
     }
 }
 
 function revision(){
     const site = document.querySelector(".checkout");
-        site.classList.remove("resume");
+    site.classList.remove("resume");
 }
 
 function request(){
-    let name = prompt("Qual é o seu nome?")
-    let address = prompt("Qual é o seu endereço?")
+    let name = prompt("Qual é o seu nome?");
+    let address = prompt("Qual é o seu endereço?");
 
     if (name === null){
-        name = "Não informado"
+        name = "Não informado";
     }
 
     if (address === null){
-        address = "Não informado"
+        address = "Não informado";
     }
 
     let str = `Olá, gostaria de fazer o pedido:\n`;
