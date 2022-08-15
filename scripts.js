@@ -12,7 +12,6 @@ function checkItems() {
         message.innerHTML = "Selecione os 3 itens para fechar o pedido";
         button.classList.remove("selected");
     }
-
 }
 
 function selectMeal(option) {
@@ -129,13 +128,13 @@ function request(){
     }
 
     let str = `Olá, gostaria de fazer o pedido:\n`;
-    str += `- Prato: ${foodOrder[0][0] + " - " + foodOrder[0][1]}\n`;
-    str += `- Bebida: ${foodOrder[1][0] + " - " + foodOrder[1][1]}\n`;
-    str += `- Sobremesa: ${foodOrder[2][0] + " - " + foodOrder[2][1]}\n`;
+    str += `- Prato: ${foodOrder[0][1]}\n`;
+    str += `- Bebida: ${foodOrder[1][1]}\n`;
+    str += `- Sobremesa: ${foodOrder[2][1]}\n`;
     str += `Total: ${priceCalculator()}\n\n`;
     str += `Nome: ${name}\n`;
     str += `Endereço: ${address}\n`;
     const a = document.querySelector(".checkout a");
     a.target="_blank"
-    a.href="https://wa.me/?text=" + encodeURIComponent(str);
+    a.href="https://wa.me/5521999999999?text=" + encodeURIComponent(str);
 }

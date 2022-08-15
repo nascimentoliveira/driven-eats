@@ -180,7 +180,7 @@ ion-icon {
 
 .bottom-bar .selected {
     background-color: #32B72F;
-    transition: 3s;
+    transition: 2s;
 }
 
 .bottom-bar > button {
@@ -192,7 +192,7 @@ ion-icon {
     align-items: center;
     border: 0px;
     background-color: #CBCBCB;
-    transition: 3s;
+    transition: 1.5s;
 }
 
 .bottom-bar > button > span {
